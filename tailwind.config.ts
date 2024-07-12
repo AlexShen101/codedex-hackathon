@@ -37,6 +37,7 @@ const config: Config = {
       'light-brown': '#7B4F44',
       'dark-brown': '#442500',
       'pink': '#C8A2C8',
+      ...require("tailwindcss/colors"),
     },
   },
   plugins: [],

@@ -40,7 +40,8 @@ export default function MenuClient() {
 
   const categoryTitles = categories.map(category => ({
     id: category.id,
-    title: category.attributes.title
+    title: category.attributes.title,
+    active: category === selectedCategory,
   }));
 
   const menuItems = selectedCategory ? selectedCategory.attributes.menu_items.data : [];
