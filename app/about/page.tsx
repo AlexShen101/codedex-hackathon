@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function About() {
   return (
     <>
-      <div className="flex items-center h-60v bg-black">
-        <h1 className="text-6xl font-bold text-white float-left ml-[15%] z-10">
+      <div className="hero-section h-[300px] flex items-center bg-black">
+        <h1 className="desktop-container text-4xl font-bold text-white p-16">
           About Sip & Play
         </h1>
       </div>
