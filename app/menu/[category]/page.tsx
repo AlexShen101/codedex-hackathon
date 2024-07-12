@@ -53,8 +53,10 @@ export default async function MenuCategory({
 
   const models = {
     boba: "/models/boba.glb",
+    "seasonal-menu": "/models/boba.glb",
     "hot-bites": "/models/french-fries.glb",
     "specialty-drinks": "/models/latte.glb",
+    coffee: "/models/latte.glb",
     "beer-and-wine": "/models/wine.glb",
     "sandwiches-and-salads": "/models/avocado-toast.glb",
   };

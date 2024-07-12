@@ -4,7 +4,7 @@ import NavLink from "./navLink";
 
 export default function DesktopHeader() {
   return (
-    <header className="sticky min-h-[94px] top-0 left-0 right-0 z-50 bg-white border-b border-neutral-300 hidden md:flex justify-center w-full">
+    <header className="sticky min-h-[94px] top-0 left-0 right-0 z-[900] bg-white border-b border-neutral-300 hidden md:flex justify-center w-full">
       <div className="desktop-container flex items-center justify-between w-full">
         <div className="flex items-center">
           <Link href="/">
