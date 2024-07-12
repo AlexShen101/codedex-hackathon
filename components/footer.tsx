@@ -1,14 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaPhone } from "react-icons/fa";
-import { FaEnvelope } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaTiktok } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaInstagramSquare,
+  FaPhone,
+  FaTiktok,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <div className="flex w-full justify-center bg-black mt-4">
-      <div className="flex justify-between p-5 container">
+    <div className="flex w-full justify-between bg-black mt-4">
+      <div className="flex justify-between p-5 w-full desktop-container">
         <div className="footer-logo">
           <Image
             src="/sipnplay2.png"
@@ -58,36 +60,45 @@ export default function Footer() {
         </div>
         <div className="flex flex-col">
           <h3 className="text-xl mb-1.5 font-semibold text-white">Company</h3>
-          <Link className="text-beige mb-1.5 hover:underline" href="/feedback">
+          <Link className="text-beige mb-1.5 hover:underline" href="#">
             Submit Feedback
           </Link>
-          <Link className="text-beige mb-1.5 hover:underline" href="/news">
+          <Link className="text-beige mb-1.5 hover:underline" href="#">
             Press
           </Link>
-          <Link className="text-beige mb-1.5 hover:underline" href="/gifts">
+          <Link className="text-beige mb-1.5 hover:underline" href="#">
             Gift Cards
           </Link>
         </div>
         <div className="flex flex-col">
-          <h3 className="text-xl mb-1.5 font-semibold text-white">Contact Us</h3>
+          <h3 className="text-xl mb-1.5 font-semibold text-white">
+            Contact Us
+          </h3>
           <Link
-            className="text-beige mb-1.5 hover:underline flex"
+            className="text-beige mb-1.5 hover:underline flex items-center gap-2"
             href="tel:+1718971684"
           >
-            <FaPhone className="mr-2"/> 1 (718) 971-1684
+            <FaPhone /> 1 (718) 971-1684
           </Link>
           <Link
-            className="text-beige mb-1.5 hover:underline flex"
+            className="text-beige mb-1.5 hover:underline flex items-center gap-2"
             href="mailto:sipnplaynyc@gmail.com"
           >
-            <FaEnvelope className="mr-2"/> sipnplaynyc@gmail.com
+            <FaEnvelope />
+            <span>sipnplaynyc@gmail.com</span>
           </Link>
         </div>
         <div className="flex flex-col">
-          <Link className="text-beige text-4xl mb-1.5 mt-4" href="https://www.instagram.com/sipnplaynyc">
+          <Link
+            className="text-beige text-4xl mb-1.5 mt-4"
+            href="https://www.instagram.com/sipnplaynyc"
+          >
             <FaInstagramSquare />
           </Link>
-          <Link className="text-beige text-4xl mb-1.5 mt-4" href="https://www.tiktok.com/@sipnplaynycofficial">
+          <Link
+            className="text-beige text-4xl mb-1.5 mt-4"
+            href="https://www.tiktok.com/@sipnplaynycofficial"
+          >
             <FaTiktok />
           </Link>
         </div>

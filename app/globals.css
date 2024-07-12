@@ -27,6 +27,7 @@ body {
 
   .desktop-container {
     @apply max-w-[1280px];
+    @apply w-full;
     @apply mx-auto;
   }
 }

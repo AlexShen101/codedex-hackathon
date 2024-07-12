@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import NavLink from "./navLink";
@@ -7,7 +7,7 @@ export default function MobileHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-transparent w-full block md:hidden">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-transparent w-full h-screen">
       <div className="flex items-center justify-between px-4 py-2 bg-white border-b border-neutral-300">
         <div className="flex items-center">
           <button
