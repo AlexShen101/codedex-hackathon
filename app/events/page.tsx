@@ -2,6 +2,7 @@ import { DM_Serif_Display } from "next/font/google";
 import { FaChevronDown } from "react-icons/fa";
 import EventCard from "./components/eventCard";
 import HeroSection from "./components/heroSection";
+import Link from 'next/link';
 
 const dmSerifDisplay = DM_Serif_Display({
   subsets: ["latin-ext"],
@@ -76,11 +77,16 @@ export default async function Events() {
       <section className="desktop-container flex flex-col items-center px-12">
         <div className="flex flex-col md:flex-row my-16 gap-12 justify-between items-center w-full">
           <h1
-            className={`${dmSerifDisplay.className} text-5xl font-bold text-black`}
+            className={`${dmSerifDisplay.className} text-5xl font-bold text-black w-[25%]`}
           >
             Upcoming Events
           </h1>
-          <div className="flex space-x-4">
+          <Link
+            href="/events/calendar"
+            className="text-2xl font-semibold text-light-brown hover:text-dark-brown hover:underline">
+              View Calendar Here
+          </Link>
+          <div className="flex flex-col md:flex-row  space-x-4">
             <select className="bg-black text-crispy-green rounded-full px-8 py-4">
               <option>Weekdays</option>
               <option value="monday">Monday</option>
