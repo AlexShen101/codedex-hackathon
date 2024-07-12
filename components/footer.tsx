@@ -8,9 +8,9 @@ export default function Footer() {
         <div className="footer-logo">
           <Image
             src="/sipnplay2.png"
-            width={282}
-            height={260}
-            className="h-20 w-24"
+            width={512}
+            height={512}
+            className="h-[84px] w-[84px] min-w-[84px] min-h-[84px]"
             alt="SipnPlay Logo"
           />{" "}
         </div>
