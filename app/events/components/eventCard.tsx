@@ -22,6 +22,7 @@ interface EventCardProps {
 }
 
 export default function EventCard({ event }: EventCardProps) {
+  // get month, day, hours, minutes, and am/pm for user friendly date display
   const monthNames = [
     "JAN",
     "FEB",
@@ -46,10 +47,12 @@ export default function EventCard({ event }: EventCardProps) {
     minutes < 10 ? "0" : ""
   }${minutes} ${ampm}`;
 
+  // scrape squareUrl ID which maps to the event "ID"
   const regex = /https:\/\/square\.link\/u\/([a-zA-Z0-9]+)/;
   const match = event.squareUrl.match(regex);
   let eventUrl = `/events/`;
 
+  // generate the url to the events page
   if (match) {
     eventUrl = `/events/${match[1]}`;
   } else {

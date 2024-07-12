@@ -6,6 +6,7 @@ export default async function EventPage({
 }: {
   params: { slug: string };
 }) {
+  // get event details from Strapi api - searches for the specific time slot with this square url, and then uses that to determine which event should be displayed
   const res = await fetch(
     `${process.env.STRAPI_API_URL}/event-time-slots?filters[squareurl][$eq]=https://square.link/u/${params.slug}&populate[event][populate][0]=coverimage`,
     {
@@ -18,8 +19,8 @@ export default async function EventPage({
 
   let event = null;
 
+  // initialize the timeSlot variable depending on whether data is returned
   let timeSlot = data.data ? data.data[0].attributes : null;
-
   if (!timeSlot) {
     return <div>Square Link not found.</div>;
   }
@@ -28,10 +29,12 @@ export default async function EventPage({
     ? timeSlot.event.data.attributes
     : null;
 
+  // check if the fetch req returned event Details
   if (!eventDetails) {
     return <div>Event not found.</div>;
   }
 
+  // generate image url to embed
   const imageUrl = eventDetails?.coverimage?.data?.attributes?.url
     ? process.env.NODE_ENV === "development" ||
       typeof process.env.NODE_ENV === "undefined"
@@ -43,6 +46,7 @@ export default async function EventPage({
 
   console.log(JSON.stringify(eventDetails.coverimage?.data?.attributes));
 
+  // construct event info
   event = {
     title: eventDetails.title,
     description: eventDetails.description,
@@ -51,10 +55,12 @@ export default async function EventPage({
     coverImage: imageUrl,
   };
 
+  // calcualte days till event
   const today = new Date();
   const diffTime = event.date.getTime() - today.getTime();
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
+  // convert date into user friendly display format
   const weekDays = [
     "Sunday",
     "Monday",

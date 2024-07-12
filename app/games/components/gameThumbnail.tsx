@@ -5,6 +5,7 @@ interface GameThumbnailProps {
 }
 
 export default async function GameThumbnail(props: GameThumbnailProps) {
+  // generate image url to embed
   const imageUrl =
     process.env.NODE_ENV === "development" ||
     typeof process.env.NODE_ENV === "undefined"
