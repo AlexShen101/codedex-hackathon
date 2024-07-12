@@ -53,7 +53,7 @@ export default function Footer() {
           </Link>
         </div>
         <div className="flex flex-col">
-          <h3 className="text-xl mb-1.5 font-semibold">Company</h3>
+          <h3 className="text-xl mb-1.5 font-semibold text-white">Company</h3>
           <Link className="text-beige mb-1.5 hover:underline" href="#">
             Submit Feedback
           </Link>
@@ -65,7 +65,7 @@ export default function Footer() {
           </Link>
         </div>
         <div className="flex flex-col">
-          <h3 className="text-xl mb-1.5 font-semibold">Contact Us</h3>
+          <h3 className="text-xl mb-1.5 font-semibold text-white">Contact Us</h3>
           <Link
             className="text-beige mb-1.5 hover:underline"
             href="tel:+1718971684"
