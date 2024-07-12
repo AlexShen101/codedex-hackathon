@@ -3,36 +3,36 @@ import { FaEnvelope, FaPhone } from "react-icons/fa";
 export default function HomeInfoSection() {
   return (
     <section className="desktop-container">
-      <div className="grid md:grid-cols-2">
-        <div className="grid grid-cols-2 gap-24 p-12">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-24 p-12">
           <div className="flex flex-col">
             <h3 className="font-bold text-lg">Hours of Operation</h3>
             <div className="flex flex-col">
-              <div className="flex justify-between">
+              <div className="flex flex-col md:flex-row justify-between">
                 <span>Mon</span>
                 <span>11 AM - 11 PM</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex flex-col md:flex-row justify-between">
                 <span>Tues</span>
                 <span>11 AM - 11 PM</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex flex-col md:flex-row justify-between">
                 <span>Wed</span>
                 <span>11 AM - 11 PM</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex flex-col md:flex-row justify-between">
                 <span>Thurs</span>
                 <span>11 AM - 11 PM</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex flex-col md:flex-row justify-between">
                 <span>Fri</span>
                 <span>11 AM - 12 AM</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex flex-col md:flex-row justify-between">
                 <span>Sat</span>
                 <span>10 AM - 12 AM</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex flex-col md:flex-row justify-between">
                 <span>Sun</span>
                 <span>10 AM - 11 PM</span>
               </div>
