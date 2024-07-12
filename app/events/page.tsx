@@ -1,5 +1,6 @@
 import HeroSection from "./components/heroSection";
 import EventCard from "./components/eventCard";
+import { FaChevronDown } from "react-icons/fa";
 
 export default async function Events() {
   const res = await fetch(`${process.env.NEXT_API_URL}/api/events`);
@@ -48,7 +49,7 @@ export default async function Events() {
             <label className="block text-sm mb-2">Time</label>
             <div className="flex items-center">
               <input type="date" className="text-2xl font-semibold" placeholder="Any date"></input>
-              <i className="fas fa-chevron-down ml-2"></i>
+              <FaChevronDown />
             </div>
             <div className="border-b-2 border-green-500 mt-2"></div>
           </div>

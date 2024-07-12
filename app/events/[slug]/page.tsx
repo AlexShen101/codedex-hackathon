@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 // pages/events/[slug].js
 export default async function EventPage({ params }: { params: { slug: string } }) {
@@ -58,7 +59,7 @@ export default async function EventPage({ params }: { params: { slug: string } }
                 <div className="grid grid-cols-2 gap-4 w-fit mt-16 mb-16">
                     <div className="bg-white p-8 rounded-lg shadow-custom h-fit">
                         <h1 className="text-4xl font-bold mb-8">{event.title}</h1>
-                        <a href={event.squareUrl} className="bg-black text-2xl text-green py-2 px-4 rounded-lg font-semibold w-full inline-block text-center shadow-custom">Register for Event</a>
+                        <Link href={event.squareUrl} className="bg-black text-2xl text-green py-2 px-4 rounded-lg font-semibold w-full inline-block text-center shadow-custom">Register for Event</Link>
                         <h1 className="text-2xl font-bold mb-2 mt-16">Event Description</h1>
                         <p className="whitespace-pre-wrap">{event.description}</p>
                     </div>
