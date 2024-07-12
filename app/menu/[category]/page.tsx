@@ -1,4 +1,4 @@
-import { MenuCategory } from "@/app/types/menu";
+import { MenuCategory as MenuCategoryType } from "@/app/types/menu";
 import { DM_Serif_Display } from "next/font/google";
 import HeroSection from "../components/heroSection";
 import MenuButtons from "../components/menuButtons";
@@ -20,7 +20,7 @@ export default async function MenuCategory({
   );
   const categories = await categoriesRes.json();
 
-  const categoryTitles = categories.data.map((category: MenuCategory) => ({
+  const categoryTitles = categories.data.map((category: MenuCategoryType) => ({
     id: category.id,
     title: category.attributes.title,
     slug: category.attributes.slug,
@@ -30,7 +30,7 @@ export default async function MenuCategory({
   const menuDataRes = await fetch(
     `http://localhost:3000/api/menu-items?category=${params.category}`
   );
-  const menuData = (await menuDataRes.json()) as { data: MenuCategory[] };
+  const menuData = (await menuDataRes.json()) as { data: MenuCategoryType[] };
 
   const menuItems = menuData.data[0].attributes.menu_items;
 
