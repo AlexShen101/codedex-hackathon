@@ -1,73 +1,38 @@
 import HeroSection from "./components/heroSection";
 import EventCard from "./components/eventCard";
 
-interface Event {
-  title: string;
-  description: string;
-  coverImage: string;
-  date: Date;
-}
-
-const sampleEvents = [
-  {
-    title: "Magic the Gathering: Modern Horizons 3 Pre-release",
-    description: "Enjoy the Modern Horizons 3 Pre-release event with friends and family!",
-    coverImage: "https://placehold.co/400x200",
-    date: new Date('2024-07-12T18:00:00') // July 12, 2024, 6:00 PM
-  },
-  {
-    title: "Community Art Exhibition",
-    description: "Local artists showcase their work in a community setting.",
-    coverImage: "https://placehold.co/400x200",
-    date: new Date('2024-08-05T15:00:00') // August 5, 2024, 3:00 PM
-  },
-  {
-    title: "Outdoor Yoga Session",
-    description: "Join us for a relaxing outdoor yoga session in the park.",
-    coverImage: "https://placehold.co/400x200",
-    date: new Date('2024-09-10T08:00:00') // September 10, 2024, 8:00 AM
-  },
-  {
-    title: "Tech Meetup: AI and Machine Learning",
-    description: "Discuss the latest trends in AI and machine learning with industry experts.",
-    coverImage: "https://placehold.co/400x200",
-    date: new Date('2024-10-15T19:00:00') // October 15, 2024, 7:00 PM
-  },
-  {
-    title: "Charity Run for Local Schools",
-    description: "Participate in a charity run to support local schools and education.",
-    coverImage: "https://placehold.co/400x200",
-    date: new Date('2024-11-20T07:00:00') // November 20, 2024, 7:00 AM
-  },
-  {
-    title: "Holiday Craft Fair",
-    description: "Shop for unique handmade crafts and gifts for the holiday season.",
-    coverImage: "https://placehold.co/400x200",
-    date: new Date('2024-12-05T10:00:00') // December 5, 2024, 10:00 AM
-  },
-  {
-    title: "Winter Concert Series",
-    description: "Enjoy live music performances by local bands and musicians.",
-    coverImage: "https://placehold.co/400x200",
-    date: new Date('2025-01-18T20:00:00') // January 18, 2025, 8:00 PM
-  },
-  {
-    title: "Spring Gardening Workshop",
-    description: "Learn tips and tricks for successful gardening in the spring.",
-    coverImage: "https://placehold.co/400x200",
-    date: new Date('2025-02-25T09:00:00') // February 25, 2025, 9:00 AM
-  },
-  {
-    title: "Culinary Arts Festival",
-    description: "Experience culinary delights from chefs around the region.",
-    coverImage: "https://placehold.co/400x200",
-    date: new Date('2025-03-30T12:00:00') // March 30, 2025, 12:00 PM
-  }
-];
-
 export default async function Events() {
-  const res = await fetch("http://127.0.0.1:3000/api/events");
+  const res = await fetch(`${process.env.NEXT_API_URL}/api/events`);
   const data = await res.json();
+
+  let events = [];
+
+  for (const dataEvent of data.data) {
+    let attributes = dataEvent.attributes
+    let timeSlots = attributes.event_time_slots.data
+
+    let coverImage = null
+
+    if (attributes.coverimage.data) {
+      coverImage = {
+        width: attributes.coverimage.data.attributes.width,
+        height: attributes.coverimage.data.attributes.height,
+        url: attributes.coverimage.data.attributes.url
+      }
+    }
+
+    for (const timeSlot of timeSlots) {
+      let event = {
+        title: attributes.title,
+        description: attributes.description,
+        coverImage: coverImage,
+        date: new Date(timeSlot.attributes.datetime),
+        squareUrl: timeSlot.attributes.squareurl
+      }
+
+      events.push(event)
+    }
+  }
 
   return (
     <div className="bg-white">
@@ -117,7 +82,7 @@ export default async function Events() {
         </div>
 
         <div className="grid grid-cols-3 gap-4">
-          {sampleEvents.map((event, index) => (
+          {events.map((event, index) => (
             <EventCard key={index} event={event} />
           ))}
         </div>

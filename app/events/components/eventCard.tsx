@@ -1,9 +1,16 @@
 import Image from 'next/image';
+import './styles.css'
+
+interface CoverImage {
+  width: number;
+  height: number;
+  url: string;
+}
 
 interface Event {
   title: string;
-  description: string;
-  coverImage: string;
+  description: string | null;
+  coverImage: CoverImage | null;
   date: Date;
 }
 
@@ -24,7 +31,16 @@ export default function EventCard({ event }: EventCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-md">
       <div className="relative">
-        <img src={event.coverImage} alt={`${event.title} event banner`} className="w-full h-48 object-cover" />
+        {
+          event.coverImage ?
+            (
+              <Image src={process.env.STRAPI_BASE_URL + event.coverImage.url} alt={`${event.title} event banner`} width={event.coverImage.width} height={event.coverImage.height} className="w-full h-48 object-cover" />
+            )
+            :
+            (
+              <img src="https://placehold.co/500x200" alt={`${event.title} event banner`} className="w-full h-48 object-cover" />
+            )
+        }
       </div>
       <div className="p-4 bg-black text-white flex">
         <div className="text-center pr-4 flex-shrink-0">
@@ -34,10 +50,17 @@ export default function EventCard({ event }: EventCardProps) {
         </div>
         <div className="pl-4 flex-grow">
           <div className="text-green font-bold text-md">{event.title}</div>
-          <div className="text-green font-semibold">{event.description}</div>
-          <div className="text-sm mt-2">
-            Enjoy the {event.title} event with friends and family!
-          </div>
+          {
+            event.description ?
+              (
+                <div className="text-green font-semibold overflow-ellipsis-multiline">{event.description}</div>
+              ) :
+              (
+                <div className="text-green font-semibold">
+                  Enjoy the {event.title} event with friends and family!
+                </div>
+              )
+          }
         </div>
       </div>
     </div>
