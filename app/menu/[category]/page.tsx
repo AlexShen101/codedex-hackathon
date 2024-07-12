@@ -71,7 +71,7 @@ export default async function MenuCategory({
             ></div> */}
           </div>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-4">
           {menuItems.data.map((menuItem) => {
             return <MenuItemBox menuItem={menuItem} />;
           })}

@@ -27,24 +27,32 @@ export default function MenuItemBox({ menuItem }: { menuItem: MenuItem }) {
     };
   });
 
+  console.dir(menuItem);
+
   const imageUrl = `${process.env.STRAPI_BASE_URL}/uploads/`;
 
   return (
-    <div className="menu-item bg-black text-white rounded p-4 m-4 flex items-center space-x-8 w-[500px]">
-      <img src={""} alt={altText} className="w-24 h-24" />
-      <div className="flex flex-col flex-grow">
+    <div className="menu-item text-left bg-black text-white rounded p-4 flex items-center w-[500px] min-h-[200px]">
+      <div className="min-w-[150px]">
+        <img src={""} alt={altText} className="w-24 h-24" />
+      </div>
+      <div className="flex flex-col flex-grow gap-2">
         <h1 className={`${dmSerifDisplay.className} text-3xl font-bold`}>
           {name}
         </h1>
         {/* <div className="border-t-2 border-crispy-green w-full my-2"></div> */}
-        <p className="text-sm mb-4 text-beige font-semibold">{description}</p>
+        <p className="text-sm mb-4 text-beige font-semibold border-l-2 border-beige pl-2">
+          {description}
+        </p>
         <div className="flex space-x-8">
           {price_data.map((price_item, index) => (
-            <div className="flex flex-col">
-              <p className="font-bold" key={index}>
+            <div key={index} className="flex flex-col">
+              <span className="font-bold text-xl" key={index}>
                 {price_item.label}
-              </p>
-              <p key={index}>{formatPrice(price_item.price)}</p>
+              </span>
+              <span className="text-beige font-semibold">
+                {formatPrice(price_item.price)}
+              </span>
             </div>
           ))}
         </div>
