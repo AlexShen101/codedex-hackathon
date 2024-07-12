@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import "./styles.css";
@@ -64,8 +63,15 @@ export default function EventCard({ event }: EventCardProps) {
       <div className="bg-white rounded-lg shadow-lg overflow-hidden sm:w-full md:max-w-2xl lg:max-w-4xl">
         <div className="relative">
           {event.coverImage ? (
-            <Image
-              src={process.env.STRAPI_BASE_URL + event.coverImage.url}
+            // <Image
+            //   src={process.env.STRAPI_BASE_URL + event.coverImage.url}
+            //   alt={`${event.title} event banner`}
+            //   width={event.coverImage.width}
+            //   height={event.coverImage.height}
+            //   className="w-full h-48 object-cover"
+            // />
+            <img
+              src={event.coverImage.url}
               alt={`${event.title} event banner`}
               width={event.coverImage.width}
               height={event.coverImage.height}

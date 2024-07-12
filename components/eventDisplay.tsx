@@ -1,4 +1,4 @@
-import EventCard from "@/app/events/components/eventCard"
+import EventCard from "@/app/events/components/eventCard";
 
 export default async function EventDisplay() {
   const res = await fetch(`${process.env.STRAPI_API_URL}/events?populate=*`, {
@@ -38,11 +38,13 @@ export default async function EventDisplay() {
   }
 
   // sort events by date
-  events.sort((a, b) => a.date.getTime() - b.date.getTime())
+  events.sort((a, b) => a.date.getTime() - b.date.getTime());
 
   const today = new Date();
   // Filter events to only include those after today, and then slice the 3 closest ones
-  const upcomingEvents = events.filter((event) => event.date >= today).slice(0, 3);
+  const upcomingEvents = events
+    .filter((event) => event.date >= today)
+    .slice(0, 3);
 
   return (
     <>
@@ -52,5 +54,5 @@ export default async function EventDisplay() {
         ))}
       </div>
     </>
-  )
+  );
 }
