@@ -7,18 +7,15 @@ interface MenuButtonsProps {
 // Renders the list of menu buttons for provided categories
 export default function MenuButtons({ categories }: MenuButtonsProps) {
   return (
-    <div className="py-8">
-      <h2 className="text-4xl font-bold">Menu</h2>
-      <div className="flex justify-center flex-wrap">
-        {categories.map((category) => (
-          <MenuButton
-            key={category.id}
-            slug={category.slug}
-            label={category.title}
-            active={category.active}
-          />
-        ))}
-      </div>
+    <div className="flex justify-center flex-wrap">
+      {categories.map((category) => (
+        <MenuButton
+          key={category.id}
+          slug={category.slug}
+          label={category.title}
+          active={category.active}
+        />
+      ))}
     </div>
   );
 }

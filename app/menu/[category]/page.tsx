@@ -1,7 +1,14 @@
 import { MenuCategory } from "@/app/types/menu";
+import { DM_Serif_Display } from "next/font/google";
 import HeroSection from "../components/heroSection";
 import MenuButtons from "../components/menuButtons";
 import MenuItemBox from "../components/menuItem";
+import ModelViewer from "../components/modelViewer";
+
+const dmSerifDisplay = DM_Serif_Display({
+  subsets: ["latin-ext"],
+  weight: ["400"],
+});
 
 export default async function MenuCategory({
   params,
@@ -25,21 +32,44 @@ export default async function MenuCategory({
   );
   const menuData = (await menuDataRes.json()) as { data: MenuCategory[] };
 
-  console.log(menuData);
-
   const menuItems = menuData.data[0].attributes.menu_items;
+
+  const models = {
+    boba: "/models/boba.glb",
+    "hot-bites": "/models/french-fries.glb",
+    "specialty-drinks": "/models/latte.glb",
+    "beer-and-wine": "/models/wine.glb",
+    "sandwiches-and-salads": "/models/avocado-toast.glb",
+  };
+
+  const model = models[params.category];
 
   return (
     <div className="text-center bg-white text-black">
       <HeroSection />
+
+      <h2 className={`${dmSerifDisplay.className} text-4xl my-12 font-bold`}>
+        Menu
+      </h2>
+
       <MenuButtons
         categories={categoryTitles}
         // onCategoryChange={handleCategoryChange}
       />
 
-      <div className="py-8">
-        <div className="bg-gray-300 p-8 inline-block">
-          <img src="https://placehold.co/150x150" alt="3D image" />
+      <div className="py-8 w-full flex flex-col items-center">
+        <div className="relative w-[600px] h-[400px]">
+          <div className="w-full h-full absolute top-0">
+            {model && <ModelViewer src={model} />}
+            {/* <div
+              className="absolute w-full h-full top-0 pointer-events-none"
+              style={{
+                background: "linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1))",
+                transform: "rotateX(45deg)",
+                perspective: "240px",
+              }}
+            ></div> */}
+          </div>
         </div>
         <div className="flex flex-col">
           {menuItems.data.map((menuItem) => {

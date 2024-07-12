@@ -13,6 +13,7 @@ export default function MenuButton({ label, slug, active }: MenuButtonProps) {
 
   return (
     <Link
+      scroll={false}
       href={`/menu/${slug}`}
       className={`${color} menu-button text-white px-4 py-2 rounded-full m-2 cursor-pointer shadow-custom duration-200`}
     >
