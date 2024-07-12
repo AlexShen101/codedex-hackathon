@@ -1,8 +1,10 @@
+import { FaExternalLinkAlt } from "react-icons/fa";
+
 import { DM_Serif_Display } from "next/font/google";
+import Link from "next/link";
 import { FaChevronDown } from "react-icons/fa";
 import EventCard from "./components/eventCard";
 import HeroSection from "./components/heroSection";
-import Link from 'next/link';
 
 const dmSerifDisplay = DM_Serif_Display({
   subsets: ["latin-ext"],
@@ -49,7 +51,16 @@ export default async function Events() {
   return (
     <div className="flex flex-col">
       <HeroSection />
-      <section className="desktop-container py-6 px-12">
+      <section className="desktop-container py-6 px-12 flex flex-col items-center gap-4">
+        <Link
+          href="/events/calendar"
+          className="text-2xl font-semibold text-light-brown hover:text-dark-brown hover:underline"
+        >
+          <div className="flex items-center gap-2 text-black">
+            <FaExternalLinkAlt />
+            <span>Calendar</span>
+          </div>
+        </Link>
         <div className="flex flex-col md:flex-row bg-black text-crispy-green p-12 rounded-xl shadow-lg md:justify-center md:items-end gap-8">
           <div>
             <label className="block text-sm mb-2">Search Event</label>
@@ -81,11 +92,6 @@ export default async function Events() {
           >
             Upcoming Events
           </h1>
-          <Link
-            href="/events/calendar"
-            className="text-2xl font-semibold text-light-brown hover:text-dark-brown hover:underline">
-              View Calendar Here
-          </Link>
           <div className="flex flex-col md:flex-row  space-x-4">
             <select className="bg-black text-crispy-green rounded-full px-8 py-4">
               <option>Weekdays</option>
