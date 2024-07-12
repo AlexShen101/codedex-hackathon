@@ -80,7 +80,7 @@ export default async function Events() {
           >
             Upcoming Events
           </h1>
-          <div className="flex space-x-4">
+          <div className="flex flex-col md:flex-row  space-x-4">
             <select className="bg-black text-crispy-green rounded-full px-8 py-4">
               <option>Weekdays</option>
               <option value="monday">Monday</option>
