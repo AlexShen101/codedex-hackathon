@@ -10,8 +10,8 @@ export default function HeroSection() {
         <Image src="/magic_the_gathering/p3.png" alt="Character 3" width={447} height={631} className="absolute right-0 top-[10%] h-[100%]" />
       </div>
       <div className="absolute bottom-10 right-10 text-center">
-        <p className="text-xl mb-4">Want to Join the Sip & Play Community?</p>
-        <button className="bg-white text-black py-2 px-4 rounded-full">Join Discord</button>
+        <p className="text-[4rem] mb-4 text-white font-bold text-right max-w-[60%] break-words ml-auto">Want to Join the Sip & Play Community?</p>
+        <button className="bg-white text-black py-4 px-8 rounded-full w-[30%] shadow-white shadow-md font-semibold text-xl transition transform hover:scale-105 ml-auto float-right">Join the Discord</button>
       </div>
     </div>
   );
