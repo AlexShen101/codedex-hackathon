@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <div className="hero-section bg-black text-white flex justify-center items-center w-full">
+    <div className="hero-section  bg-hero-black text-white flex justify-center items-center w-full">
       <div className="desktop-container w-full hero-section text-white p-8 flex justify-between items-center">
         <div className="flex flex-col space-y-8">
           <h1 className="text-5xl font-bold">Make a Reservation for Your Event Today!</h1>

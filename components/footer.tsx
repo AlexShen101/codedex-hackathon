@@ -10,8 +10,8 @@ import {
 export default function Footer() {
   return (
     <div className="flex w-full justify-between bg-black mt-4">
-      <div className="flex justify-between p-5 w-full desktop-container">
-        <div className="footer-logo">
+      <div className="grid grid-cols-1 md:grid-cols-5 justify-between p-5 w-full desktop-container">
+        <div className="footer-logo mb-8">
           <Image
             src="/sipnplay2.png"
             width={512}
@@ -20,7 +20,7 @@ export default function Footer() {
             alt="SipnPlay Logo"
           />{" "}
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-8">
           <Link
             className="text-beige mb-1.5 hover:underline text-xl font-semibold"
             href="/"
@@ -58,7 +58,7 @@ export default function Footer() {
             Reservations
           </Link>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-8">
           <h3 className="text-xl mb-1.5 font-semibold text-white">Company</h3>
           <Link className="text-beige mb-1.5 hover:underline" href="/feedback">
             Submit Feedback
@@ -67,7 +67,7 @@ export default function Footer() {
             Press
           </Link>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-8">
           <h3 className="text-xl mb-1.5 font-semibold text-white">
             Contact Us
           </h3>
@@ -85,7 +85,7 @@ export default function Footer() {
             <span>sipnplaynyc@gmail.com</span>
           </Link>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-8">
           <Link
             className="text-beige text-4xl mb-1.5 mt-4"
             href="https://www.instagram.com/sipnplaynyc"

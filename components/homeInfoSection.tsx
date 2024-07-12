@@ -8,31 +8,31 @@ export default function HomeInfoSection() {
           <div className="flex flex-col">
             <h3 className="font-bold text-lg">Hours of Operation</h3>
             <div className="flex flex-col">
-              <div className="flex flex-col md:flex-row justify-between">
+              <div className="flex flex-col md:flex-row justify-between mb-6">
                 <span>Mon</span>
                 <span>11 AM - 11 PM</span>
               </div>
-              <div className="flex flex-col md:flex-row justify-between">
+              <div className="flex flex-col md:flex-row justify-between mb-6">
                 <span>Tues</span>
                 <span>11 AM - 11 PM</span>
               </div>
-              <div className="flex flex-col md:flex-row justify-between">
+              <div className="flex flex-col md:flex-row justify-between mb-6">
                 <span>Wed</span>
                 <span>11 AM - 11 PM</span>
               </div>
-              <div className="flex flex-col md:flex-row justify-between">
+              <div className="flex flex-col md:flex-row justify-between mb-6">
                 <span>Thurs</span>
                 <span>11 AM - 11 PM</span>
               </div>
-              <div className="flex flex-col md:flex-row justify-between">
+              <div className="flex flex-col md:flex-row justify-between mb-6">
                 <span>Fri</span>
                 <span>11 AM - 12 AM</span>
               </div>
-              <div className="flex flex-col md:flex-row justify-between">
+              <div className="flex flex-col md:flex-row justify-between mb-6">
                 <span>Sat</span>
                 <span>10 AM - 12 AM</span>
               </div>
-              <div className="flex flex-col md:flex-row justify-between">
+              <div className="flex flex-col md:flex-row justify-between mb-6">
                 <span>Sun</span>
                 <span>10 AM - 11 PM</span>
               </div>

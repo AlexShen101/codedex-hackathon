@@ -30,6 +30,7 @@ const config: Config = {
         "100v": "100vh",
       },
       colors: {
+        "hero-black": "#000000",
         black: "#161214",
         green: "#628A22",
         "crispy-green": "#7CAE7A",
