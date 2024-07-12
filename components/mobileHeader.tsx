@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import NavLink from "./navlink";
+import NavLink from "./navLink";
 
 export default function MobileHeader() {
   const [menuOpen, setMenuOpen] = useState(false);

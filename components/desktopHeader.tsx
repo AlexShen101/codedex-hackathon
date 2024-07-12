@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import NavLink from "./navlink";
+import NavLink from "./navLink";
 
 export default function DesktopHeader() {
   return (
