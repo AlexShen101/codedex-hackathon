@@ -1,6 +1,12 @@
+import { DM_Serif_Display } from "next/font/google";
 import { FaChevronDown } from "react-icons/fa";
 import EventCard from "./components/eventCard";
 import HeroSection from "./components/heroSection";
+
+const dmSerifDisplay = DM_Serif_Display({
+  subsets: ["latin-ext"],
+  weight: ["400"],
+});
 
 export default async function Events() {
   const res = await fetch(`${process.env.STRAPI_API_URL}/events?populate=*`, {
@@ -40,35 +46,42 @@ export default async function Events() {
   }
 
   return (
-    <div className="bg-white">
+    <div className="flex flex-col">
       <HeroSection />
-      <div className="px-16 py-8">
-        <div className="bg-black text-green mr-[25rem] ml-[25rem] p-16 rounded-xl shadow-lg flex space-x-16 rounded-3xl">
+      <section className="desktop-container py-6 px-12">
+        <div className="flex flex-col md:flex-row bg-black text-crispy-green p-12 rounded-xl shadow-lg md:justify-center md:items-end gap-8">
           <div>
             <label className="block text-sm mb-2">Search Event</label>
             <input
-              className="text-2xl font-semibold bg-black text-green"
+              className="text-2xl font-semibold bg-black text-crispy-green"
               placeholder="Magic the Gathering"
             ></input>
-            <div className="border-b-2 border-green mt-2"></div>
+            <div className="border-b-2 border-crispy-green mt-1"></div>
           </div>
+
           <div>
             <label className="block text-sm mb-2">Time</label>
             <div className="flex items-center">
               <input
                 type="date"
-                className="text-2xl font-semibold"
+                className="text-2xl font-semibold bg-transparent"
                 placeholder="Any date"
               ></input>
               <FaChevronDown />
             </div>
-            <div className="border-b-2 border-green-500 mt-2"></div>
+            <div className="border-b-2 border-crispy-green mt-1"></div>
           </div>
         </div>
-        <div className="flex mt-16 mb-16 justify-between items-center">
-          <h1 className="text-5xl font-bold text-black">Upcoming Events</h1>
+      </section>
+      <section className="desktop-container flex flex-col items-center px-12">
+        <div className="flex flex-col md:flex-row my-16 gap-12 justify-between items-center w-full">
+          <h1
+            className={`${dmSerifDisplay.className} text-5xl font-bold text-black`}
+          >
+            Upcoming Events
+          </h1>
           <div className="flex space-x-4">
-            <select className="bg-black text-green rounded-full px-8 py-4">
+            <select className="bg-black text-crispy-green rounded-full px-8 py-4">
               <option>Weekdays</option>
               <option value="monday">Monday</option>
               <option value="tuesday">Tuesday</option>
@@ -76,14 +89,14 @@ export default async function Events() {
               <option value="thursday">Thursday</option>
               <option value="friday">Friday</option>
             </select>
-            <select className="bg-black text-green rounded-full px-8 py-4">
+            <select className="bg-black text-crispy-green rounded-full px-8 py-4">
               <option>Event Type</option>
               <option value="conference">Conference</option>
               <option value="workshop">Workshop</option>
               <option value="seminar">Seminar</option>
               <option value="webinar">Webinar</option>
             </select>
-            <select className="bg-black text-green rounded-full px-8 py-4">
+            <select className="bg-black text-crispy-green rounded-full px-8 py-4">
               <option>Any Category</option>
               <option value="tech">Technology</option>
               <option value="art">Art</option>
@@ -93,12 +106,12 @@ export default async function Events() {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {events.map((event, index) => (
             <EventCard key={index} event={event} />
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 }
