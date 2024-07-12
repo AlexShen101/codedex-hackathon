@@ -86,7 +86,6 @@ export default async function EventPage({
               <div className="bg-black w-3 h-3 rounded-full mr-2"></div>
               <span className="text-black">10 days to event</span>
             </div>
-<<<<<<< HEAD
             <div className="desktop-container">
                 <div className="grid grid-cols-2 gap-4 w-fit mt-16 mb-16">
                     <div className="bg-white p-8 rounded-lg shadow-custom h-fit">
@@ -117,12 +116,6 @@ export default async function EventPage({
                         </div>
                     </div>
                 </div>
-=======
-            <div className="mb-4">
-              <h3 className="text-lg font-bold">Date & Time</h3>
-              <p>Fri, Jun 7</p>
-              <p>6:00 PM - 11:00 PM EDT</p>
->>>>>>> aaffd99e8d8667c269fc37808bedd1a39bc0b6c1
             </div>
             <div className="mb-4">
               <h3 className="text-lg font-bold">Location</h3>
