@@ -26,8 +26,8 @@ export default function GameRow(props: GameRowProps) {
         {props.category.attributes.name}
       </h3>
       <div className="flex flex-wrap gap-[26px]">
-        {props.category.attributes.games.data.map((game, index) => {
-          return <GameThumbnail key={index} game={game} />;
+        {props.category.attributes.games.data.map((game) => {
+          return <GameThumbnail key={game.id} game={game} />;
         })}
       </div>
     </div>
