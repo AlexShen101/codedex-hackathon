@@ -32,6 +32,7 @@ const config: Config = {
       colors: {
         black: "#161214",
         green: "#628A22",
+        "crispy-green": "#7CAE7A",
         white: "#FFF9EC",
         beige: "#CEB195",
         "light-brown": "#7B4F44",

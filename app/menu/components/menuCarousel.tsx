@@ -1,6 +1,8 @@
-import MenuItemBox from './menuItem';
-import { MenuItem as MenuItemType } from '../interface/interfaces';
-import { useState } from 'react';
+"use client";
+
+import { useState } from "react";
+import { MenuItem as MenuItemType } from "../interface/interfaces";
+import MenuItemBox from "./menuItem";
 
 interface MenuCarouselProps {
   menuItems: MenuItemType[];
@@ -26,13 +28,18 @@ function MenuCarousel({ menuItems }: MenuCarouselProps) {
   };
 
   // use currentIndex to determine which items to display
-  const displayedItems = menuItems.slice(currentIndex, currentIndex + 4).concat(
-    menuItems.slice(0, Math.max(0, (currentIndex + 4) - menuItems.length))
-  );
+  const displayedItems = menuItems
+    .slice(currentIndex, currentIndex + 4)
+    .concat(
+      menuItems.slice(0, Math.max(0, currentIndex + 4 - menuItems.length))
+    );
 
   return (
     <div className="flex justify-center items-center">
-      <button onClick={prevItems} className="carousel-button bg-light-brown hover:bg-dark-brown text-white rounded-full p-4 cursor-pointer mx-4">
+      <button
+        onClick={prevItems}
+        className="carousel-button bg-light-brown hover:bg-dark-brown text-white rounded-full p-4 cursor-pointer mx-4"
+      >
         <i className="fas fa-chevron-left"></i>
       </button>
       <div className="grid grid-cols-2 gap-4">
@@ -40,7 +47,10 @@ function MenuCarousel({ menuItems }: MenuCarouselProps) {
           <MenuItemBox key={item.id} {...item} />
         ))}
       </div>
-      <button onClick={nextItems} className="carousel-button bg-light-brown hover:bg-dark-brown text-white rounded-full p-4 cursor-pointer mx-4">
+      <button
+        onClick={nextItems}
+        className="carousel-button bg-light-brown hover:bg-dark-brown text-white rounded-full p-4 cursor-pointer mx-4"
+      >
         <i className="fas fa-chevron-right"></i>
       </button>
     </div>
