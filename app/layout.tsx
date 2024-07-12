@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
 
-import Header from "../components/header";
 import Footer from "../components/footer";
+import Header from "../components/header";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -20,9 +20,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={urbanist.className}>
-        <Header />
-        {children}
-        <Footer />
+        <div className="h-screen flex flex-col">
+          <Header />
+          {/* <div className="flex flex-col items-center">
+          <div className="container">{children}</div>
+        </div> */}
+          <div className="flex-grow">{children}</div>
+
+          <Footer />
+        </div>
       </body>
     </html>
   );
