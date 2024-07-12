@@ -12,7 +12,7 @@ export default function NavLink({
 }) {
   const pathname = usePathname();
 
-  const active = pathname === link;
+  const active = pathname.includes(link);
 
   console.log(pathname);
 

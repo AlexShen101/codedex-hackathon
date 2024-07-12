@@ -1,6 +1,5 @@
 import HeroSection from "@/components/heroSection";
-import { FaPhone } from "react-icons/fa";
-import { HiMail } from "react-icons/hi";
+import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default async function Home() {
   return (
@@ -55,7 +54,7 @@ export default async function Home() {
                   <span>1 (718) 971-1684</span>
                 </div>
                 <div className="text-light-brown flex items-center gap-2">
-                  <HiMail className="text-beige" />
+                  <FaEnvelope className="text-beige" />
                   <span>sipnplaynyc@gmail.com</span>
                 </div>
               </div>
