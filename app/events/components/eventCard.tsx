@@ -58,7 +58,7 @@ export default function EventCard({ event }: EventCardProps) {
 
   return (
     <Link href={eventUrl}>
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-md">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden sm:w-full md:max-w-2xl lg:max-w-4xl">
         <div className="relative">
           {event.coverImage ? (
             <Image
