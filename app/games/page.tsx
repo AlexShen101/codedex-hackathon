@@ -2,8 +2,10 @@ import GameRow from "./components/gameRow";
 import HeroSection from "./components/heroSection";
 
 export default async function Games() {
-  const res = await fetch("http://127.0.0.1:3000/api/games");
+  const res = await fetch(`${process.env.NEXT_API_URL}/api/games`);
   const categories = await res.json();
+
+  console.log(categories)
 
   // return JSON.stringify(data); //<h1>Game page</h1>;
   return (

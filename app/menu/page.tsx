@@ -9,7 +9,7 @@ import useSWR from "swr";
 
 // Fetcher function to fetch menu items from the API
 const fetcher = async () => {
-  const response = await fetch("http://localhost:3000/api/menu-items");
+  const response = await fetch(`${process.env.NEXT_API_URL}/api/menu-items`);
   const data = await response.json();
   return data;
 }
