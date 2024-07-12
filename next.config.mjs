@@ -16,7 +16,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "better-star-ee79dac8ce.strapiapp.com",
+        hostname: "strapiapp.com",
         port: "",
         pathname: "/uploads/**",
       },
