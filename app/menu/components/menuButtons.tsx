@@ -5,6 +5,7 @@ interface MenuButtonsProps {
     onCategoryChange: (id: number) => void;
 }
 
+// Renders the list of menu buttons for provided categories
 export default function MenuButtons({ categories, onCategoryChange }: MenuButtonsProps) {
     return (
         <div className="py-8">

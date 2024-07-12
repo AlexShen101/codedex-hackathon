@@ -6,20 +6,26 @@ interface MenuCarouselProps {
   menuItems: MenuItemType[];
 }
 
+// Renders the MenuCarousel Component (the 4 menu items + buttons)
 function MenuCarousel({ menuItems }: MenuCarouselProps) {
+  // currentIndex keeps track of the current items to display
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // handle the display of the next set of items
   const nextItems = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 4) % menuItems.length);
   };
 
+  // handle the display of the previous set of items
   const prevItems = () => {
     setCurrentIndex((prevIndex) => {
       const newIndex = prevIndex - 4;
+      // Loop back to the end if the new index is less than 0
       return newIndex < 0 ? menuItems.length + newIndex : newIndex;
     });
   };
 
+  // use currentIndex to determine which items to display
   const displayedItems = menuItems.slice(currentIndex, currentIndex + 4).concat(
     menuItems.slice(0, Math.max(0, (currentIndex + 4) - menuItems.length))
   );

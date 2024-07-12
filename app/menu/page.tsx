@@ -7,16 +7,19 @@ import MenuCarousel from "./components/menuCarousel";
 import { Category } from "./interface/interfaces";
 import useSWR from "swr";
 
+// Fetcher function to fetch menu items from the API
 const fetcher = async () => {
   const response = await fetch("http://localhost:3000/api/menu-items");
   const data = await response.json();
   return data;
 }
 
+// Renders the menu page
 export default function MenuClient() {
   const [categories, setCategories] = useState<Category[] | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
 
+  // useSWR hook for data fetching
   const { data, error, isLoading } = useSWR("/api/menu-items", fetcher)
 
   useEffect(() => {
@@ -38,12 +41,14 @@ export default function MenuClient() {
     }
   };
 
+  // Map categories to titles with active state for MenuButtons
   const categoryTitles = categories.map(category => ({
     id: category.id,
     title: category.attributes.title,
     active: category === selectedCategory,
   }));
 
+  // Get menu items for the selected category
   const menuItems = selectedCategory ? selectedCategory.attributes.menu_items.data : [];
 
   return (

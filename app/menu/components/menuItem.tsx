@@ -1,8 +1,11 @@
 import { MenuItem } from '../interface/interfaces'
 
+// Renders a mneu item box with the name, description, and prices
 export default function MenuItemBox({ id, attributes }: MenuItem) {
   const { name, description, menu_item_prices } = attributes;
   const altText = `${name} image`;
+  
+  // Extracting prices from menu_item_prices
   const prices = menu_item_prices.data.map(price => price.attributes.price);
 
   return (
