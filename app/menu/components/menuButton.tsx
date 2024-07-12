@@ -1,12 +1,12 @@
 interface MenuButtonProps {
     label: string;
-    bgColor?: string;
+    onClick?: () => void;
 }
 
-export default function MenuButton({ label, bgColor = "bg-black" }: MenuButtonProps) {
+export default function MenuButton({ label, onClick }: MenuButtonProps) {
     return (
-        <div className={`${bgColor} menu-button text-white px-4 py-2 rounded-full m-2 cursor-pointer shadow-custom`}>
+        <button className="bg-black menu-button text-white px-4 py-2 rounded-full m-2 cursor-pointer shadow-custom" onClick={onClick}>
             {label}
-        </div>
+        </button>
     );
 }
