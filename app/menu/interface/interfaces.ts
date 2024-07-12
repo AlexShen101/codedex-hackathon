@@ -1,3 +1,5 @@
+import { Image } from "@/app/types/image";
+
 export interface MenuItemPrice {
   id: number;
   attributes: {
@@ -15,6 +17,7 @@ export interface MenuItem {
   attributes: {
     name: string;
     description: string | null;
+    image: Image;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;

@@ -36,9 +36,9 @@ export default async function MenuCategory({
 
   let menuDataUrl;
   if (category)
-    menuDataUrl = `${process.env.STRAPI_API_URL}/menu-categories?populate[menu_items][populate][0]=menu_item_prices&filters[slug]=${category}`;
+    menuDataUrl = `${process.env.STRAPI_API_URL}/menu-categories?populate[menu_items][populate][0]=menu_item_prices&populate[menu_items][populate][1]=image&filters[slug]=${category}`;
   else
-    menuDataUrl = `${process.env.STRAPI_API_URL}/menu-categories?populate[menu_items][populate][0]=menu_item_prices`;
+    menuDataUrl = `${process.env.STRAPI_API_URL}/menu-categories?populate[menu_items][populate][0]=menu_item_prices&populate[menu_items][populate][1]=image`;
 
   const menuDataRes = await fetch(menuDataUrl, {
     headers: {
