@@ -109,7 +109,7 @@ export default async function EventPage({
           ></div>
         </div>
         <Image
-          className="object-cover absolute top-0"
+          className="w-[60%]"
           src={
             event.coverImage
               ? event.coverImage
@@ -118,11 +118,10 @@ export default async function EventPage({
           alt="Magic the Gathering logo"
           width={600}
           height={200}
-          className="w-[60%]"
         />
       </div>
       <div className="desktop-container">
-        <div className="grid grid-cols-2 gap-4 w-fit mt-16 mb-16">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 w-fit mt-16 mb-16">
           <div className="bg-white p-8 rounded-lg border border-neutral-400 h-fit">
             <h1 className="text-4xl font-bold mb-8">{event.title}</h1>
             <a
