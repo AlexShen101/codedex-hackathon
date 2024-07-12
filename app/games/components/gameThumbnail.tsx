@@ -1,12 +1,15 @@
 import { Game } from "@/app/types/game";
-import Image from "next/image";
 
 interface GameThumbnailProps {
   game: Game;
 }
 
 export default async function GameThumbnail(props: GameThumbnailProps) {
-  const imageUrl = `${process.env.STRAPI_BASE_URL}${props.game.attributes.thumbnail.data.attributes.url}`;
+  const imageUrl =
+    process.env.NODE_ENV === "development" ||
+    typeof process.env.NODE_ENV === "undefined"
+      ? `${process.env.STRAPI_BASE_URL}${props.game.attributes.thumbnail.data.attributes.url}`
+      : props.game.attributes.thumbnail.data.attributes.url;
 
   //   console.log(props.game.attributes.thumbnail.data.attributes.url, data);
 
@@ -16,13 +19,18 @@ export default async function GameThumbnail(props: GameThumbnailProps) {
       min-w-[200px] min-h-[200px]
     "
     >
-      <Image
-        // className="min-w-[200px] min-h-[200px]"
+      {/* <Image
         className="object-cover max-w-none w-full"
         width={200}
         height={200}
         alt={`A thumbnail image for the game ${props.game.attributes.title}.`}
-        // src={props.game?.attributes?.thumbnail?.data?.attributes?.url || ""}
+        src={imageUrl}
+      /> */}
+      <img
+        className="object-cover max-w-none w-full"
+        width={200}
+        height={200}
+        alt={`A thumbnail image for the game ${props.game.attributes.title}.`}
         src={imageUrl}
       />
     </div>

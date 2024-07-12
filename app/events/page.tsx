@@ -1,5 +1,5 @@
-import EventCard from "./components/eventCard";
 import { FaChevronDown } from "react-icons/fa";
+import EventCard from "./components/eventCard";
 import HeroSection from "./components/heroSection";
 
 export default async function Events() {
@@ -55,7 +55,11 @@ export default async function Events() {
           <div>
             <label className="block text-sm mb-2">Time</label>
             <div className="flex items-center">
-              <input type="date" className="text-2xl font-semibold" placeholder="Any date"></input>
+              <input
+                type="date"
+                className="text-2xl font-semibold"
+                placeholder="Any date"
+              ></input>
               <FaChevronDown />
             </div>
             <div className="border-b-2 border-green-500 mt-2"></div>
