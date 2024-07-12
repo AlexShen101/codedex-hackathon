@@ -58,13 +58,13 @@ export default function Footer() {
         </div>
         <div className="flex flex-col">
           <h3 className="text-xl mb-1.5 font-semibold text-white">Company</h3>
-          <Link className="text-beige mb-1.5 hover:underline" href="#">
+          <Link className="text-beige mb-1.5 hover:underline" href="/feedback">
             Submit Feedback
           </Link>
-          <Link className="text-beige mb-1.5 hover:underline" href="#">
+          <Link className="text-beige mb-1.5 hover:underline" href="/news">
             Press
           </Link>
-          <Link className="text-beige mb-1.5 hover:underline" href="#">
+          <Link className="text-beige mb-1.5 hover:underline" href="/gifts">
             Gift Cards
           </Link>
         </div>
