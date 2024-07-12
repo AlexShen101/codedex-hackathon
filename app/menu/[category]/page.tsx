@@ -1,4 +1,4 @@
-import { MenuCategory } from "@/app/types/menu";
+import { MenuCategory as MenuCategoryType } from "@/app/types/menu";
 import { DM_Serif_Display } from "next/font/google";
 import HeroSection from "../components/heroSection";
 import MenuButtons from "../components/menuButtons";
@@ -15,22 +15,39 @@ export default async function MenuCategory({
 }: {
   params: { category: string };
 }) {
-  const categoriesRes = await fetch(
-    "http://localhost:3000/api/menu-categories"
-  );
+  const categoriesUrl = `${process.env.STRAPI_API_URL}/menu-categories`;
+
+  const categoriesRes = await fetch(categoriesUrl, {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_SECRET}`,
+    },
+    cache: "no-store",
+  });
   const categories = await categoriesRes.json();
 
-  const categoryTitles = categories.data.map((category: MenuCategory) => ({
+  const categoryTitles = categories.data.map((category: MenuCategoryType) => ({
     id: category.id,
     title: category.attributes.title,
     slug: category.attributes.slug,
     active: category.attributes.slug === params.category,
   }));
 
-  const menuDataRes = await fetch(
-    `http://localhost:3000/api/menu-items?category=${params.category}`
-  );
-  const menuData = (await menuDataRes.json()) as { data: MenuCategory[] };
+  const category = params.category;
+
+  let menuDataUrl;
+  if (category)
+    menuDataUrl = `${process.env.STRAPI_API_URL}/menu-categories?populate[menu_items][populate][0]=menu_item_prices&filters[slug]=${category}`;
+  else
+    menuDataUrl = `${process.env.STRAPI_API_URL}/menu-categories?populate[menu_items][populate][0]=menu_item_prices`;
+
+  const menuDataRes = await fetch(menuDataUrl, {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_SECRET}`,
+    },
+    cache: "no-store",
+  });
+
+  const menuData = (await menuDataRes.json()) as { data: MenuCategoryType[] };
 
   const menuItems = menuData.data[0].attributes.menu_items;
 
