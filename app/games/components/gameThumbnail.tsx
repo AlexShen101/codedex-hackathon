@@ -5,7 +5,11 @@ interface GameThumbnailProps {
 }
 
 export default async function GameThumbnail(props: GameThumbnailProps) {
-  const imageUrl = `${process.env.STRAPI_BASE_URL}${props.game.attributes.thumbnail.data.attributes.url}`;
+  const imageUrl =
+    process.env.NODE_ENV === "development" ||
+    typeof process.env.NODE_ENV === "undefined"
+      ? `${process.env.STRAPI_BASE_URL}${props.game.attributes.thumbnail.data.attributes.url}`
+      : props.game.attributes.thumbnail.data.attributes.url;
 
   //   console.log(props.game.attributes.thumbnail.data.attributes.url, data);
 
