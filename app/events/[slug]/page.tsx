@@ -123,11 +123,11 @@ export default async function EventPage({
       </div>
       <div className="desktop-container">
         <div className="grid grid-cols-2 gap-4 w-fit mt-16 mb-16">
-          <div className="bg-white p-8 rounded-lg shadow-custom h-fit">
+          <div className="bg-white p-8 rounded-lg border border-neutral-400 h-fit">
             <h1 className="text-4xl font-bold mb-8">{event.title}</h1>
             <a
               href={event.squareUrl}
-              className="bg-black text-2xl text-crispy-green py-2 px-4 rounded-lg font-semibold w-full inline-block text-center shadow-custom"
+              className="bg-black text-2xl text-crispy-green py-2 px-4 rounded-lg font-semibold w-full inline-block text-center"
             >
               Register for Event
             </a>

@@ -5,8 +5,8 @@ export default async function Home() {
   return (
     <div>
       <HeroSection />
-      <div className="grid md:grid-cols-2">
-        <section className="desktop-container">
+      <section className="desktop-container">
+        <div className="grid md:grid-cols-2">
           <div className="grid grid-cols-2 gap-24 p-12">
             <div className="flex flex-col">
               <h3 className="font-bold text-lg">Hours of Operation</h3>
@@ -60,8 +60,6 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        </section>
-        <section className="desktop-container md:order-first">
           <div className="flex flex-col p-12">
             <h3 className="font-bold text-lg mb-4">How It Works</h3>
             <p>
@@ -81,8 +79,8 @@ export default async function Home() {
               is $15 a person for 3 hours of gameplay.
             </p>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }
