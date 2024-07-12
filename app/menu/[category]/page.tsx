@@ -15,9 +15,14 @@ export default async function MenuCategory({
 }: {
   params: { category: string };
 }) {
-  const categoriesRes = await fetch(
-    "http://localhost:3000/api/menu-categories"
-  );
+  const categoriesUrl = `${process.env.STRAPI_API_URL}/menu-categories`;
+
+  const categoriesRes = await fetch(categoriesUrl, {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_SECRET}`,
+    },
+    cache: "no-store",
+  });
   const categories = await categoriesRes.json();
 
   const categoryTitles = categories.data.map((category: MenuCategoryType) => ({
@@ -27,9 +32,21 @@ export default async function MenuCategory({
     active: category.attributes.slug === params.category,
   }));
 
-  const menuDataRes = await fetch(
-    `http://localhost:3000/api/menu-items?category=${params.category}`
-  );
+  const category = params.category;
+
+  let menuDataUrl;
+  if (category)
+    menuDataUrl = `${process.env.STRAPI_API_URL}/menu-categories?populate[menu_items][populate][0]=menu_item_prices&filters[slug]=${category}`;
+  else
+    menuDataUrl = `${process.env.STRAPI_API_URL}/menu-categories?populate[menu_items][populate][0]=menu_item_prices`;
+
+  const menuDataRes = await fetch(menuDataUrl, {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_SECRET}`,
+    },
+    cache: "no-store",
+  });
+
   const menuData = (await menuDataRes.json()) as { data: MenuCategoryType[] };
 
   const menuItems = menuData.data[0].attributes.menu_items;

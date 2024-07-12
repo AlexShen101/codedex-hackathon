@@ -1,24 +1,28 @@
-import HeroSection from "./components/heroSection";
 import EventCard from "./components/eventCard";
+import HeroSection from "./components/heroSection";
 
 export default async function Events() {
-  const res = await fetch(`${process.env.NEXT_API_URL}/api/events`);
+  const res = await fetch(`${process.env.STRAPI_API_URL}/events?populate=*`, {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_SECRET}`,
+    },
+  });
   const data = await res.json();
 
   let events = [];
 
   for (const dataEvent of data.data) {
-    let attributes = dataEvent.attributes
-    let timeSlots = attributes.event_time_slots.data
+    let attributes = dataEvent.attributes;
+    let timeSlots = attributes.event_time_slots.data;
 
-    let coverImage = null
+    let coverImage = null;
 
     if (attributes.coverimage.data) {
       coverImage = {
         width: attributes.coverimage.data.attributes.width,
         height: attributes.coverimage.data.attributes.height,
-        url: attributes.coverimage.data.attributes.url
-      }
+        url: attributes.coverimage.data.attributes.url,
+      };
     }
 
     for (const timeSlot of timeSlots) {
@@ -27,10 +31,10 @@ export default async function Events() {
         description: attributes.description,
         coverImage: coverImage,
         date: new Date(timeSlot.attributes.datetime),
-        squareUrl: timeSlot.attributes.squareurl
-      }
+        squareUrl: timeSlot.attributes.squareurl,
+      };
 
-      events.push(event)
+      events.push(event);
     }
   }
 
@@ -41,13 +45,20 @@ export default async function Events() {
         <div className="bg-black text-green mr-[25rem] ml-[25rem] p-16 rounded-xl shadow-lg flex space-x-16 rounded-3xl">
           <div>
             <label className="block text-sm mb-2">Search Event</label>
-            <input className="text-2xl font-semibold bg-black text-green" placeholder="Magic the Gathering"></input>
+            <input
+              className="text-2xl font-semibold bg-black text-green"
+              placeholder="Magic the Gathering"
+            ></input>
             <div className="border-b-2 border-green mt-2"></div>
           </div>
           <div>
             <label className="block text-sm mb-2">Time</label>
             <div className="flex items-center">
-              <input type="date" className="text-2xl font-semibold" placeholder="Any date"></input>
+              <input
+                type="date"
+                className="text-2xl font-semibold"
+                placeholder="Any date"
+              ></input>
               <i className="fas fa-chevron-down ml-2"></i>
             </div>
             <div className="border-b-2 border-green-500 mt-2"></div>
@@ -88,5 +99,5 @@ export default async function Events() {
         </div>
       </div>
     </div>
-  )
+  );
 }
