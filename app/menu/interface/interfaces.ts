@@ -1,5 +1,8 @@
 import { Image } from "@/app/types/image";
 
+// this file contains type interfaces that are used for the menu
+// these interfaces are used to define the shape of the data that is returned from the strapi API
+
 export interface MenuItemPrice {
   id: number;
   attributes: {

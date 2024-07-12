@@ -1,6 +1,7 @@
 import { DM_Serif_Display } from "next/font/google";
 import { MenuItem } from "../interface/interfaces";
 
+// function to format price in cents to a user friendly string
 const formatPrice = (price: number) => {
   const priceString = price.toString();
   return `$${priceString.substring(
@@ -14,7 +15,7 @@ const dmSerifDisplay = DM_Serif_Display({
   weight: ["400"],
 });
 
-// Renders a mneu item box with the name, description, and prices
+// Renders a menu item box with the name, description, and prices
 export default function MenuItemBox({ menuItem }: { menuItem: MenuItem }) {
   const { name, description, menu_item_prices } = menuItem.attributes;
   const altText = `${name} image`;

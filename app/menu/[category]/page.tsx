@@ -15,6 +15,7 @@ export default async function MenuCategory({
 }: {
   params: { category: string };
 }) {
+  // fetch menu items from strapi db
   const categoriesUrl = `${process.env.STRAPI_API_URL}/menu-categories`;
 
   const categoriesRes = await fetch(categoriesUrl, {
@@ -25,6 +26,7 @@ export default async function MenuCategory({
   });
   const categories = await categoriesRes.json();
 
+  // get important data from strapi response
   const categoryTitles = categories.data.map((category: MenuCategoryType) => ({
     id: category.id,
     title: category.attributes.title,
@@ -34,6 +36,7 @@ export default async function MenuCategory({
 
   const category = params.category;
 
+  // query strapi for specific menu items
   let menuDataUrl;
   if (category)
     menuDataUrl = `${process.env.STRAPI_API_URL}/menu-categories?populate[menu_items][populate][0]=menu_item_prices&populate[menu_items][populate][1]=image&filters[slug]=${category}`;
@@ -51,12 +54,13 @@ export default async function MenuCategory({
 
   const menuItems = menuData.data[0].attributes.menu_items;
 
+  // 3D model links to display 3D model for the category
   const models = {
-    boba: "/models/boba.glb",
+    "boba": "/models/boba.glb",
     "seasonal-menu": "/models/boba.glb",
     "hot-bites": "/models/french-fries.glb",
     "specialty-drinks": "/models/latte.glb",
-    coffee: "/models/latte.glb",
+    "coffee": "/models/latte.glb",
     "beer-and-wine": "/models/wine.glb",
     "sandwiches-and-salads": "/models/avocado-toast.glb",
   };

@@ -9,6 +9,7 @@ interface ModelViewerProps {
   style?: CSSProperties;
 }
 
+// handles 3D model viewing using three.js
 function Model({ url }) {
   const { scene } = useGLTF(url);
   return <primitive object={scene} />;
