@@ -14,8 +14,6 @@ export default function NavLink({
 
   const active = link === "/" ? pathname === "/" : pathname.includes(link);
 
-  console.log(pathname);
-
   return (
     <Link
       href={link}

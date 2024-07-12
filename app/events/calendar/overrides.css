@@ -1,0 +1,7 @@
+.fc-daygrid {
+  @apply bg-[#fff];
+}
+
+.fc .fc-button {
+  @apply bg-crispy-green;
+}

@@ -7,7 +7,7 @@ export default async function EventPage({
   params: { slug: string };
 }) {
   const res = await fetch(
-    `${process.env.STRAPI_API_URL}/event-time-slots?filters[squareurl][$eq]=https://square.link/u/${params.slug}&populate=event`,
+    `${process.env.STRAPI_API_URL}/event-time-slots?filters[squareurl][$eq]=https://square.link/u/${params.slug}&populate[event][populate][0]=coverimage`,
     {
       headers: {
         Authorization: `Bearer ${process.env.STRAPI_API_SECRET}`,
@@ -32,11 +32,23 @@ export default async function EventPage({
     return <div>Event not found.</div>;
   }
 
+  const imageUrl = eventDetails?.coverimage?.data?.attributes?.url
+    ? process.env.NODE_ENV === "development" ||
+      typeof process.env.NODE_ENV === "undefined"
+      ? `${process.env.STRAPI_BASE_URL}${
+          eventDetails.coverimage?.data?.attributes?.url || undefined
+        }`
+      : eventDetails.coverimage?.data?.attributes?.url || undefined
+    : undefined;
+
+  console.log(JSON.stringify(eventDetails.coverimage?.data?.attributes));
+
   event = {
     title: eventDetails.title,
     description: eventDetails.description,
     date: new Date(timeSlot.datetime),
     squareUrl: timeSlot.squareurl,
+    coverImage: imageUrl,
   };
 
   const today = new Date();
@@ -81,9 +93,28 @@ export default async function EventPage({
 
   return (
     <div className="flex flex-col items-center">
-      <div className="bg-black w-full flex items-center justify-center">
+      <div className="bg-black w-full flex items-center justify-center max-h-[350px] overflow-hidden relative">
+        <div className="grid grid-cols-2 absolute top-0 w-full h-full">
+          <div
+            style={{
+              background:
+                "linear-gradient(to right, rgba(22,18,20,1), rgba(22,18,20,0))",
+            }}
+          ></div>
+          <div
+            style={{
+              background:
+                "linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))",
+            }}
+          ></div>
+        </div>
         <Image
-          src="/magic_the_gathering/logo.png"
+          className="object-cover absolute top-0"
+          src={
+            event.coverImage
+              ? event.coverImage
+              : "/magic_the_gathering/logo.png"
+          }
           alt="Magic the Gathering logo"
           width={600}
           height={200}
@@ -92,11 +123,11 @@ export default async function EventPage({
       </div>
       <div className="desktop-container">
         <div className="grid grid-cols-2 gap-4 w-fit mt-16 mb-16">
-          <div className="bg-white p-8 rounded-lg shadow-custom h-fit">
+          <div className="bg-white p-8 rounded-lg border border-neutral-400 h-fit">
             <h1 className="text-4xl font-bold mb-8">{event.title}</h1>
             <a
               href={event.squareUrl}
-              className="bg-black text-2xl text-crispy-green py-2 px-4 rounded-lg font-semibold w-full inline-block text-center shadow-custom"
+              className="bg-black text-2xl text-crispy-green py-2 px-4 rounded-lg font-semibold w-full inline-block text-center"
             >
               Register for Event
             </a>

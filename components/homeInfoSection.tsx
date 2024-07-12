@@ -2,8 +2,8 @@ import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function HomeInfoSection() {
   return (
-    <div className="grid md:grid-cols-2">
-      <section className="desktop-container">
+    <section className="desktop-container">
+      <div className="grid md:grid-cols-2">
         <div className="grid grid-cols-2 gap-24 p-12">
           <div className="flex flex-col">
             <h3 className="font-bold text-lg">Hours of Operation</h3>
@@ -57,13 +57,11 @@ export default function HomeInfoSection() {
             </div>
           </div>
         </div>
-      </section>
-      <section className="desktop-container md:order-first">
         <div className="flex flex-col p-12">
           <h3 className="font-bold text-lg mb-4">How It Works</h3>
           <p>
-            Come on in with your friends and family and play boardgames from
-            our collection of over 500+ games!
+            Come on in with your friends and family and play boardgames from our
+            collection of over 500+ games!
             <br></br>
             <br></br>
             Just $10 a person for 3 hours of gameplay. ($12 a person
@@ -78,7 +76,7 @@ export default function HomeInfoSection() {
             is $15 a person for 3 hours of gameplay.
           </p>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
