@@ -75,17 +75,28 @@ export default async function MenuCategory({
       />
 
       <div className="py-8 w-full flex flex-col items-center">
-        <div className="relative w-[600px] h-[400px]">
+        {/* <div className="relative w-[1200px] h-[400px]"> */}
+        <div className="relative w-full h-[400px]">
           <div className="w-full h-full absolute top-0">
-            {model && <ModelViewer src={model} />}
-            {/* <div
-              className="absolute w-full h-full top-0 pointer-events-none"
-              style={{
-                background: "linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1))",
-                transform: "rotateX(45deg)",
-                perspective: "240px",
-              }}
-            ></div> */}
+            {model && <ModelViewer style={{ zIndex: 200 }} src={model} />}
+            <div
+              style={
+                {
+                  // perspective: "1000px",
+                }
+              }
+              className="absolute w-full h-full top-12 pointer-events-none"
+            >
+              <div
+                className="w-full h-full"
+                style={{
+                  background:
+                    "linear-gradient(rgba(22,18,20,0) 0%, rgba(22,18,20,0) 50%, rgba(22,18,20,0.1))",
+                  //   transform: "rotateX(45deg)",
+                  zIndex: 100,
+                }}
+              ></div>
+            </div>
           </div>
         </div>
         <div className="flex flex-col gap-4">

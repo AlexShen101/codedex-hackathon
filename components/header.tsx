@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import NavLink from "./navLink";
 
 export default function Header() {
   return (
@@ -16,7 +17,7 @@ export default function Header() {
             />
           </Link>
         </div>
-        <nav className="flex space-x-8 text-lg text-black">
+        <nav className="flex h-full text-lg text-black">
           <NavLink link="/" text="Home" />
           <NavLink link="/about" text="About" />
           <NavLink link="/games" text="Game Collection" />
@@ -26,16 +27,5 @@ export default function Header() {
         </nav>
       </div>
     </header>
-  );
-}
-
-function NavLink({ link, text }: { link: string; text: string }) {
-  return (
-    <Link
-      href={link}
-      className="hover:underline color-black font-semibold text-2xl"
-    >
-      {text}
-    </Link>
   );
 }

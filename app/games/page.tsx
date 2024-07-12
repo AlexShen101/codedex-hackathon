@@ -15,8 +15,8 @@ export default async function Games() {
   return (
     <div className="w-full">
       <HeroSection></HeroSection>
-      <div className="mt-6 w-full flex flex-col items-center">
-        <div className="flex desktop-container flex-col space-y-[50px]">
+      <div className="mt-6 w-full flex flex-col px-6">
+        <div className="flex md:desktop-container flex-col space-y-[50px]">
           {categories.data.map((category: any) => {
             return <GameRow key={category.id} category={category}></GameRow>;
           })}
