@@ -12,7 +12,7 @@ export default async function Games() {
     <div className="w-full">
       <HeroSection></HeroSection>
       <div className="mt-6 w-full flex flex-col items-center">
-        <div className="flex container flex-col space-y-[50px]">
+        <div className="flex desktop-container flex-col space-y-[50px]">
           {categories.data.map((category: any) => {
             return <GameRow category={category}></GameRow>;
           })}

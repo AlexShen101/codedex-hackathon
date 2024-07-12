@@ -1,7 +1,7 @@
 export interface MenuItemPrice {
   id: number;
   attributes: {
-    price: string;
+    price: number;
     label: string | null;
     createdAt: string;
     updatedAt: string;
