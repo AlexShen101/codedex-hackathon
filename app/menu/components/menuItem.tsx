@@ -1,16 +1,16 @@
-import { MenuItem } from '../interface/interfaces'
+import { MenuItem } from "../interface/interfaces";
 
 // Renders a mneu item box with the name, description, and prices
-export default function MenuItemBox({ id, attributes }: MenuItem) {
-  const { name, description, menu_item_prices } = attributes;
+export default function MenuItemBox({ menuItem }: { menuItem: MenuItem }) {
+  const { name, description, menu_item_prices } = menuItem.attributes;
   const altText = `${name} image`;
 
   // Extracting prices from menu_item_prices
-  const price_data = menu_item_prices.data.map(price => {
+  const price_data = menu_item_prices.data.map((price) => {
     return {
       price: price.attributes.price,
-      label: price.attributes.label
-    }
+      label: price.attributes.label,
+    };
   });
 
   return (
@@ -24,7 +24,9 @@ export default function MenuItemBox({ id, attributes }: MenuItem) {
       <div className="flex space-x-8">
         {price_data.map((price_item, index) => (
           <>
-            <p className="font-bold" key={index}>{price_item.label}</p>
+            <p className="font-bold" key={index}>
+              {price_item.label}
+            </p>
             <p key={index}>{price_item.price}</p>
           </>
         ))}
