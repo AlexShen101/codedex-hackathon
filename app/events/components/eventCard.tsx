@@ -104,9 +104,10 @@ export default function EventCard({ event }: EventCardProps) {
                 {event.description}
               </div>
             ) : (
-              <div className="text-crispy-green font-semibold">
-                Enjoy the {event.title} event with friends and family!
-              </div>
+              <></>
+              // <div className="text-crispy-green font-semibold truncate">
+              //   Enjoy the {event.title} event with friends and family!
+              // </div>
             )}
           </div>
         </div>

@@ -4,7 +4,7 @@ import EventDisplay from "./eventDisplay";
 export default function HomeEventsSection() {
   return (
     <>
-      <section className="desktop-container">
+      <section className="desktop-container p-12">
         <div className="flex justify-between items-baseline mb-4">
           <h1 className="font-semibold text-3xl">Exciting Events</h1>
           <Link
