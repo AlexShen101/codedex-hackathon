@@ -1,5 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaPhone } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -67,24 +71,24 @@ export default function Footer() {
         <div className="flex flex-col">
           <h3 className="text-xl mb-1.5 font-semibold text-white">Contact Us</h3>
           <Link
-            className="text-beige mb-1.5 hover:underline"
+            className="text-beige mb-1.5 hover:underline flex"
             href="tel:+1718971684"
           >
-            <i className="fas fa-phone"></i> 1 (718) 971-1684
+            <FaPhone className="mr-2"/> 1 (718) 971-1684
           </Link>
           <Link
-            className="text-beige mb-1.5 hover:underline"
+            className="text-beige mb-1.5 hover:underline flex"
             href="mailto:sipnplaynyc@gmail.com"
           >
-            <i className="fas fa-envelope"></i> sipnplaynyc@gmail.com
+            <FaEnvelope className="mr-2"/> sipnplaynyc@gmail.com
           </Link>
         </div>
         <div className="flex flex-col">
-          <Link className="text-beige text-3xl mb-1.5" href="#">
-            insta
+          <Link className="text-beige text-4xl mb-1.5 mt-4" href="https://www.instagram.com/sipnplaynyc">
+            <FaInstagramSquare />
           </Link>
-          <Link className="text-beige text-3xl mb-1.5" href="#">
-            tiktok
+          <Link className="text-beige text-4xl mb-1.5 mt-4" href="https://www.tiktok.com/@sipnplaynycofficial">
+            <FaTiktok />
           </Link>
         </div>
       </div>

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { MenuItem as MenuItemType } from "../interface/interfaces";
 import MenuItemBox from "./menuItem";
+import { FaChevronLeft } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
 
 interface MenuCarouselProps {
   menuItems: MenuItemType[];
@@ -40,7 +42,7 @@ function MenuCarousel({ menuItems }: MenuCarouselProps) {
         onClick={prevItems}
         className="carousel-button bg-light-brown hover:bg-dark-brown text-white rounded-full p-4 cursor-pointer mx-4"
       >
-        <i className="fas fa-chevron-left"></i>
+        <FaChevronLeft />
       </button>
       <div className="grid grid-cols-2 gap-4">
         {displayedItems.map((item, index) => (
@@ -51,7 +53,7 @@ function MenuCarousel({ menuItems }: MenuCarouselProps) {
         onClick={nextItems}
         className="carousel-button bg-light-brown hover:bg-dark-brown text-white rounded-full p-4 cursor-pointer mx-4"
       >
-        <i className="fas fa-chevron-right"></i>
+        <FaChevronRight />
       </button>
     </div>
   );
