@@ -88,7 +88,7 @@ export default async function Events() {
       <section className="desktop-container flex flex-col items-center px-12">
         <div className="flex flex-col md:flex-row my-16 gap-12 justify-between items-center w-full">
           <h1
-            className={`${dmSerifDisplay.className} text-5xl font-bold text-black w-[25%]`}
+            className={`${dmSerifDisplay.className} text-3xl md:text-5xl font-bold text-black`}
           >
             Upcoming Events
           </h1>
