@@ -37,12 +37,12 @@ export default function MobileHeader() {
         } bg-white border-t border-neutral-300`}
       >
         <nav className="flex flex-col items-center space-y-4 py-4">
-          <NavLink link="/" text="Home" />
-          <NavLink link="/about" text="About" />
-          <NavLink link="/games" text="Game Collection" />
-          <NavLink link="/menu" text="Menu" />
-          <NavLink link="/events" text="Events" />
-          <NavLink link="/reservations" text="Reservations" />
+          <NavLink onClick={() => setMenuOpen(false)} link="/" text="Home" />
+          <NavLink onClick={() => setMenuOpen(false)} link="/about" text="About" />
+          <NavLink onClick={() => setMenuOpen(false)} link="/games" text="Game Collection" />
+          <NavLink onClick={() => setMenuOpen(false)} link="/menu" text="Menu" />
+          <NavLink onClick={() => setMenuOpen(false)} link="/events" text="Events" />
+          <NavLink onClick={() => setMenuOpen(false)} link="/reservations" text="Reservations" />
         </nav>
       </div>
     </header>
