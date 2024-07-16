@@ -3,7 +3,7 @@
 
 Welcome to the Sip & Play Redesign repository! This project aims to revamp the Sip & Play website, enhancing its speed, design, and content management capabilities.
 
-## Team Code Sovereigns
+## Team
 
 - **Alex**: [LinkedIn](https://www.linkedin.com/in/alexandershen2004/)
 - **Julian**: [LinkedIn](https://www.linkedin.com/in/jatkindev/)
